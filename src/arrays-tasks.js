@@ -20,8 +20,17 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  // throw new Error('Not implemented');
+  // const arr = [];
+  // const result = () =>
+  //   Array.from({ length: end - start + 1 }, (_, i) => start + i);
+
+  // console.log(arr);
+
+  // return result;
+
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i);
 }
 
 /**
@@ -356,6 +365,7 @@ function generateOdds(/* len */) {
  */
 function getElementByIndices(/* arr, indices */) {
   throw new Error('Not implemented');
+  // reduce ???
 }
 
 /**
