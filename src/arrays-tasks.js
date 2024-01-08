@@ -123,8 +123,19 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  // throw new Error('Not implemented');
+  const arr1 = arr.filter(
+    (v) =>
+      v !== false &&
+      v !== 0 &&
+      v !== null &&
+      v !== '' &&
+      v !== undefined &&
+      Number.isNaN(v) === false
+  );
+
+  return arr1;
 }
 
 /**
@@ -137,8 +148,10 @@ function removeFalsyValues(/* arr */) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  // throw new Error('Not implemented');
+  const arr1 = arr.map((v) => v.length);
+  return arr1;
 }
 
 /**
@@ -155,8 +168,15 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  // throw new Error('Not implemented');
+  const aver =
+    arr.length > 0
+      ? Math.round((arr.reduce((acc, v) => acc + v, 0) / arr.length) * 100) /
+        100
+      : 0;
+
+  return aver;
 }
 
 /**
@@ -169,8 +189,10 @@ function getAverage(/* arr */) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
+function isSameLength(arr) {
+  // throw new Error('Not implemented');
+  const length = (v) => v.length === arr[0].length;
+  return arr.every(length);
 }
 
 /**
@@ -184,8 +206,9 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
+function isValueEqualsIndex(arr) {
+  // throw new Error('Not implemented');
+  return arr.some((v) => v === arr.indexOf(v));
 }
 
 /**
@@ -199,8 +222,9 @@ function isValueEqualsIndex(/* arr */) {
  *    insertItem([ 1, 3, 4, 5 ], 2, 1)  => [ 1, 2, 3, 4, 5 ]
  *    insertItem([ 1, 'b', 'c'], 'x', 0) => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(/* arr, item, index */) {
-  throw new Error('Not implemented');
+function insertItem(arr, item, index) {
+  // throw new Error('Not implemented');
+  return arr.splice(index, 0, item);
 }
 
 /**
@@ -214,8 +238,9 @@ function insertItem(/* arr, item, index */) {
  *    getHead([ 'a', 'b', 'c', 'd'], 3) => [ 'a', 'b', 'c' ]
  *    getHead([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getHead(/* arr, n */) {
-  throw new Error('Not implemented');
+function getHead(arr, n) {
+  // throw new Error('Not implemented');
+  return arr.slice(0, n - arr.length);
 }
 
 /**
