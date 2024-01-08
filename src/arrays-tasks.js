@@ -250,12 +250,13 @@ function getHead(arr, n) {
  * @param {number} n - Number of items.
  *
  * @example
- *    getTail([ 1, 3, 4, 5 ], 2) => [ 4, 5 ]
+ *    getTail([ 1, 2, 3, 4, 5 ], 2) => [ 4, 5 ]
  *    getTail([ 'a', 'b', 'c', 'd'], 3) => [ 'b', 'c', 'd' ]
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  // throw new Error('Not implemented');
+  return n !== 0 ? arr.slice(-n) : [];
 }
 
 /**
@@ -270,8 +271,10 @@ function getTail(/* arr, n */) {
  *    doubleArray([0, 1, 2, 3, 4, 5]) => [0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5]
  *    doubleArray([]) => []
  */
-function doubleArray(/* arr */) {
-  throw new Error('Not implemented');
+function doubleArray(arr) {
+  // throw new Error('Not implemented');
+  const arrNew = arr.concat(arr);
+  return arrNew;
 }
 
 /**
@@ -285,8 +288,9 @@ function doubleArray(/* arr */) {
  *    toStringList([1, 2, 3, 4, 5]) => '1,2,3,4,5'
  *    toStringList(['rock', 'paper', 'scissors']) => 'rock,paper,scissors'
  */
-function toStringList(/* arr */) {
-  throw new Error('Not implemented');
+function toStringList(arr) {
+  // throw new Error('Not implemented');
+  return arr.join();
 }
 
 /**
@@ -301,8 +305,12 @@ function toStringList(/* arr */) {
  *   distinct([ 1, 1, 2, 2, 3, 3, 4, 4]) => [ 1, 2, 3, 4]
  *   distinct([]) => []
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  // throw new Error('Not implemented');
+  const set = new Set();
+  arr.map((v) => set.add(v));
+  const arrNew = Array.from(set);
+  return arrNew;
 }
 
 /**
@@ -318,8 +326,25 @@ function distinct(/* arr */) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
+function createNDimensionalArray(n, size) {
+  // throw new Error('Not implemented');
+  // const arr = [];
+  // for (let i = 0; i <= n; i += 1) {
+  //   arr.push(Array(size).fill(0));
+  // }
+  // console.log(arr);
+
+  // const arr = () =>
+  //   Array(size).fill(arr.length < n ? arr : Array(size).fill(0));
+
+  const arr =
+    n > 1
+      ? Array(size).fill(
+          n - 1 > 1 ? createNDimensionalArray(n - 1, size) : Array(size).fill(0)
+        )
+      : Array(size).fill(0);
+
+  return arr;
 }
 
 /**
@@ -333,8 +358,9 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
-  throw new Error('Not implemented');
+function flattenArray(nestedArray) {
+  // throw new Error('Not implemented');
+  return nestedArray.flat(Infinity);
 }
 
 /**
@@ -350,8 +376,10 @@ function flattenArray(/* nestedArray */) {
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  // throw new Error('Not implemented');
+  const arr1 = arr.flatMap(childrenSelector);
+  return arr1;
 }
 
 /**
@@ -367,8 +395,11 @@ function selectMany(/* arr, childrenSelector */) {
  *   calculateBalance([ [ 10, 8 ], [ 1, 5 ] ])  => (10 - 8) + (1 - 5) = 2 + -4 = -2
  *   calculateBalance([]) => 0
  */
-function calculateBalance(/* arr */) {
-  throw new Error('Not implemented');
+function calculateBalance(arr) {
+  // throw new Error('Not implemented');
+  const calc = arr.map((arr1) => arr1[0] - arr1[1]);
+  const calc1 = calc.reduce((acc, v) => acc + v, 0);
+  return calc1;
 }
 
 /**
@@ -385,6 +416,9 @@ function calculateBalance(/* arr */) {
  */
 function createChunks(/* arr, chunkSize */) {
   throw new Error('Not implemented');
+  // const ch = arr.map((v) => Array(chunkSize).push(v));
+  // console.log(ch);
+  // return ch;
 }
 
 /**
@@ -401,6 +435,10 @@ function createChunks(/* arr, chunkSize */) {
  */
 function generateOdds(/* len */) {
   throw new Error('Not implemented');
+  // const arr = Array(len);
+  // len > 0 ? arr.push((count) => count + 1) :  ;
+  // console.log(arr);
+  // return arr;
 }
 
 /**
